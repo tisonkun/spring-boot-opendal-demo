@@ -1,7 +1,7 @@
 package io.tisonkun.demo.springboot.opendal;
 
 import java.util.Map;
-import org.apache.opendal.AsyncOperator;
+import org.apache.opendal.Operator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,8 +27,8 @@ public class OpenDALConfig {
     private String secretAccessKey;
 
     @Bean
-    public AsyncOperator opendal() {
-        return AsyncOperator.of(scheme, Map.of(
+    public Operator opendal() {
+        return Operator.of(scheme, Map.of(
             "endpoint", endpoint,
             "bucket", bucket,
             "region", region,
