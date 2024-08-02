@@ -12,6 +12,8 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <opendal.version>0.46.4</opendal.version>
     </properties>
 
     <parent>
@@ -24,6 +26,43 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- for portability, bundle all platforms prebuilt binaries -->
+        <dependency>
+            <groupId>org.apache.opendal</groupId>
+            <artifactId>opendal-java</artifactId>
+            <version>${opendal.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.opendal</groupId>
+            <artifactId>opendal-java</artifactId>
+            <version>${opendal.version}</version>
+            <classifier>linux-x86_64</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.opendal</groupId>
+            <artifactId>opendal-java</artifactId>
+            <version>${opendal.version}</version>
+            <classifier>linux-aarch_64</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.opendal</groupId>
+            <artifactId>opendal-java</artifactId>
+            <version>${opendal.version}</version>
+            <classifier>osx-x86_64</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.opendal</groupId>
+            <artifactId>opendal-java</artifactId>
+            <version>${opendal.version}</version>
+            <classifier>osx-aarch_64</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.opendal</groupId>
+            <artifactId>opendal-java</artifactId>
+            <version>${opendal.version}</version>
+            <classifier>windows-x86_64</classifier>
         </dependency>
     </dependencies>
 
