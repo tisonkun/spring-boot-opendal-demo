@@ -3,8 +3,6 @@ package io.tisonkun.demo.springboot.opendal;
 import java.io.IOException;
 import lombok.extern.log4j.Log4j2;
 import org.apache.opendal.Operator;
-import org.apache.opendal.OperatorOutputStream;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,9 +17,7 @@ public class OpenDALService {
     }
 
     public void uploadFile(String keyName, MultipartFile file) throws IOException {
-        final var output = new OperatorOutputStream(operator, keyName);
-        IOUtils.copy(file.getInputStream(), output);
-
+        operator.write(keyName, file.getBytes());
         final var stat = operator.stat(keyName);
         log.info("File uploaded: {}", stat);
     }
